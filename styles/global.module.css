@@ -1,0 +1,62 @@
+.text {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(28px);
+
+  @media (max-width: 767px) {
+    font-size: rem(14px);
+  }
+}
+
+.title {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  font-size: rem(20px);
+  font-weight: 500;
+  line-height: rem(32px);
+
+  @media (max-width: 767px) {
+    font-size: rem(18px);
+  }
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.formField {
+  padding: 15px 0;
+}
+
+.logoText {
+  color: #2555aa;
+  font-size: rem(20px);
+  font-weight: 700;
+  line-height: rem(28px);
+
+  @media (max-width: 767px) {
+    font-size: rem(16px);
+    line-height: rem(18px);
+  }
+}
+
+.logoSubText {
+  color: #fbd534;
+  font-size: rem(12px);
+  font-weight: 500;
+  line-height: rem(28px);
+  letter-spacing: rem(3);
+
+  @media (max-width: 767px) {
+    font-size: rem(10px);
+    line-height: rem(14px);
+  }
+}
