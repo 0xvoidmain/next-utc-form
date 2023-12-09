@@ -18,6 +18,7 @@ import cx from 'clsx';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
 import globalCss from '../../styles/global.module.css';
+import { parseObject } from '@/app/ultils/helpers';
 
 const ManufacturingEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -79,6 +80,23 @@ const ManufacturingEnterpriseForm = () => {
       serviceNeedsAdd: (value) => (value ? null : 'Required'),
     },
   });
+
+  const onHandleSubmitForm = async (values: any) => {
+    await fetch(
+      `/api?${new URLSearchParams({
+        index: '1',
+      })}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify(parseObject(values)),
+      }
+    );
+  };
   return (
     <Container pb={rem(isMobile ? 50 : 100)} pt={rem(50)}>
       <Flex align="center" justify="center" mb={30}>
@@ -101,7 +119,7 @@ const ManufacturingEnterpriseForm = () => {
       <Text className={globalCss.text}>Chân thành cảm ơn sự hợp tác của Quý Anh/Chị.</Text> */}
       <Space h="xl" />
 
-      <form onSubmit={form.onSubmit((values) => console.log(values, '==================='))}>
+      <form onSubmit={form.onSubmit((values) => onHandleSubmitForm(values))}>
         <Text className={cx(globalCss.text, globalCss.bold)}>1. Thông tin chung về công ty</Text>
 
         <Box className={globalCss.formField}>
@@ -552,7 +570,7 @@ const ManufacturingEnterpriseForm = () => {
           <Radio.Group
             label="Đánh giá"
             withAsterisk
-            {...form.getInputProps('logisticServiceProvider')}
+            {...form.getInputProps('forecastingLogisticsNeeds')}
           >
             <Flex mt="xs" direction="column" gap={rem(12)}>
               <Radio value="Tăng dưới 5%" label="Tăng dưới 5%" />
