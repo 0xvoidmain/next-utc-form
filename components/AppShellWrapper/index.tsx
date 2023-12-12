@@ -7,6 +7,7 @@ import { IconBuildingFactory, IconChevronRight, IconListCheck, IconTruckDelivery
 import { usePathname, useRouter } from 'next/navigation';
 import globalCss from '../../styles/global.module.css';
 import SwitchThemeButton from '../SwitchThemeButton';
+import { Notifications } from '@mantine/notifications';
 
 const AppShellWrapper = ({ children }: { children: any }) => {
   const [isClient, setIsClient] = useState(false);
@@ -22,6 +23,7 @@ const AppShellWrapper = ({ children }: { children: any }) => {
   const router = useRouter();
   return (
     <>
+    
       {isClient && (
         <AppShell
           transitionDuration={500}
@@ -105,7 +107,9 @@ const AppShellWrapper = ({ children }: { children: any }) => {
             {/* </Flex> */}
           </AppShell.Navbar>
 
-          <AppShell.Main>{children}</AppShell.Main>
+          <AppShell.Main>
+          <Notifications position="top-right" zIndex={1000} autoClose={4000}/>
+            {children}</AppShell.Main>
         </AppShell>
       )}
     </>

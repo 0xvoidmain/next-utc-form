@@ -13,16 +13,27 @@ import {
   TextInput,
   rem,
 } from '@mantine/core';
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'clsx';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
 import globalCss from '../../styles/global.module.css';
 import { parseObject } from '@/ultils/helpers';
 import { TransportationData } from '@/types';
+import classes from './style.module.css';
+import notiCss from '../../styles/notification.module.css';
+import { notifications } from '@mantine/notifications';
 
 const TransportationEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
+
+  const [otherUserPosition, setOtherUserPosition] = useState('');
+  const [otherKindOfProduct, setOtherKindOfProduct] = useState('');
+  const [otherLogisticServices, setOtherLogisticServices] = useState('');
+  const [otherFeedback, setOtherFeedback] = useState('');
+
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm({
     initialValues: {
       nameEnterprise: '',
@@ -68,7 +79,8 @@ const TransportationEnterpriseForm = () => {
   });
 
   const onHandleSubmitForm = async (values: TransportationData) => {
-    await fetch(
+    setIsLoading(true);
+    const resRaw = await fetch(
       `/api?${new URLSearchParams({
         index: '0',
       })}`,
@@ -82,6 +94,25 @@ const TransportationEnterpriseForm = () => {
         body: JSON.stringify(parseObject(values)),
       }
     );
+    const res = await resRaw.json();
+
+    if (res.message === 'success') {
+      notifications.show({
+        color: 'green',
+        title: 'Thành công',
+        message: 'Submit form thành công',
+        classNames: notiCss,
+      });
+      form.reset()
+    } else {
+      notifications.show({
+        color: 'red',
+        title: 'Thất bại',
+        message: 'Submit form thất bại',
+        classNames: notiCss,
+      });
+    }
+    setIsLoading(false);
   };
   return (
     <Container pb={rem(isMobile ? 50 : 100)} pt={rem(50)}>
@@ -172,7 +203,23 @@ const TransportationEnterpriseForm = () => {
               <Radio value="Phó phòng" label="Phó phòng" />
               <Radio value="Trưởng nhóm" label="Trưởng nhóm" />
               <Radio value="Nhân viên" label="Nhân viên" />
-              <Radio value="Mục khác:" label="Mục khác:" />
+              <Radio
+                classNames={{
+                  body: classes.wrapperRadio,
+                }}
+                value={`Mục khác: ${otherUserPosition}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Chức vụ hoặc vị trí công việc khác"
+                      value={otherUserPosition}
+                      onChange={(event) => setOtherUserPosition(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Radio.Group>
         </Box>
@@ -214,7 +261,23 @@ const TransportationEnterpriseForm = () => {
               <Checkbox value="Vật phẩm, văn hoá, giáo dục" label="Vật phẩm, văn hoá, giáo dục" />
               <Checkbox value="Sản phẩm hoá chất" label="Sản phẩm hoá chất" />
               <Checkbox value="Sản xuất đồ uống" label="Sản xuất đồ uống" />
-              <Checkbox value="Mục khác:" label="Mục khác:" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherKindOfProduct}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Loại hàng hoá khác"
+                      value={otherKindOfProduct}
+                      onChange={(event) => setOtherKindOfProduct(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>
@@ -285,7 +348,23 @@ const TransportationEnterpriseForm = () => {
               <Checkbox value="Bảo hiểm hàng hoá" label="Bảo hiểm hàng hoá" />
               <Checkbox value="Chuỗi cung ứng" label="Chuỗi cung ứng" />
               <Checkbox value="Cross-docking" label="Cross-docking" />
-              <Checkbox value="Mục khác:" label="Mục khác:" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherLogisticServices}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Dịch vụ logistics khác"
+                      value={otherLogisticServices}
+                      onChange={(event) => setOtherLogisticServices(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>
@@ -368,7 +447,23 @@ const TransportationEnterpriseForm = () => {
               <Radio value="Bình thường" label="Bình thường" />
               <Radio value="Tốt" label="Tốt" />
               <Radio value="Rất tốt" label="Rất tốt" />
-              <Radio value="Mục khác:" label="Mục khác:" />
+              <Radio
+                classNames={{
+                  body: classes.wrapperRadio,
+                }}
+                value={`Mục khác: ${otherFeedback}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Đánh giá khác"
+                      value={otherFeedback}
+                      onChange={(event) => setOtherFeedback(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Radio.Group>
         </Box>
@@ -428,7 +523,13 @@ const TransportationEnterpriseForm = () => {
         </Box>
 
         <Group justify="flex-end" mt="md">
-          <Button type="submit">Lưu</Button>
+          <Button
+            type="submit"
+            disabled={!form.isTouched() || Object.keys(form.errors).length !== 0}
+            loading={isLoading}
+          >
+            Lưu
+          </Button>
         </Group>
       </form>
     </Container>

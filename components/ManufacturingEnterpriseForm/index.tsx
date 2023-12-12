@@ -21,6 +21,8 @@ import globalCss from '../../styles/global.module.css';
 import { parseObject } from '@/ultils/helpers';
 import { ManufacturingData } from '@/types';
 import classes from './style.module.css';
+import notiCss from '../../styles/notification.module.css';
+import { notifications } from '@mantine/notifications';
 
 const ManufacturingEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -30,6 +32,8 @@ const ManufacturingEnterpriseForm = () => {
   const [otherCdtIncotermsImport, setOtherCdtIncotermsImport] = useState('');
   const [otherCdtIncotermsExport, setOtherCdtIncotermsExport] = useState('');
   const [otherImportantFactor, setOtherImportantFactor] = useState('');
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm({
     initialValues: {
@@ -90,7 +94,8 @@ const ManufacturingEnterpriseForm = () => {
   });
 
   const onHandleSubmitForm = async (values: ManufacturingData) => {
-    await fetch(
+    setIsLoading(true);
+    const resRaw = await fetch(
       `/api?${new URLSearchParams({
         index: '1',
       })}`,
@@ -104,6 +109,25 @@ const ManufacturingEnterpriseForm = () => {
         body: JSON.stringify(parseObject(values)),
       }
     );
+    const res = await resRaw.json();
+
+    if (res.message === 'success') {
+      notifications.show({
+        color: 'green',
+        title: 'Thành công',
+        message: 'Submit form thành công',
+        classNames: notiCss,
+      });
+      form.reset()
+    } else {
+      notifications.show({
+        color: 'red',
+        title: 'Thất bại',
+        message: 'Submit form thất bại',
+        classNames: notiCss,
+      });
+    }
+    setIsLoading(false);
   };
   return (
     <Container pb={rem(isMobile ? 50 : 100)} pt={rem(50)}>
@@ -738,7 +762,13 @@ const ManufacturingEnterpriseForm = () => {
         </Box>
 
         <Group justify="flex-end" mt="md">
-          <Button type="submit">Lưu</Button>
+          <Button
+            type="submit"
+            disabled={!form.isTouched() || Object.keys(form.errors).length !== 0}
+            loading={isLoading}
+          >
+            Lưu
+          </Button>
         </Group>
       </form>
     </Container>

@@ -1566,6 +1566,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+  version: 7.23.6
+  resolution: "@babel/runtime@npm:7.23.6"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: d886954e985ef8e421222f7a2848884d96a752e0020d3078b920dd104e672fdf23bcc6f51a44313a048796319f1ac9d09c2c88ec8cbb4e1f09174bcd3335b9ff
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15, @babel/template@npm:^7.22.5, @babel/template@npm:^7.3.3":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
@@ -2342,6 +2351,30 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 3de186ab186a566eaeda26601db4cc0052280bf7ae23d517ba8ba7e8f2386533de8c9bf230692a2a8caea4d83c457225f25de94271fe1d1d7601ce9206fca631
+  languageName: node
+  linkType: hard
+
+"@mantine/notifications@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "@mantine/notifications@npm:7.3.1"
+  dependencies:
+    "@mantine/store": "npm:7.3.1"
+    react-transition-group: "npm:4.4.5"
+  peerDependencies:
+    "@mantine/core": 7.3.1
+    "@mantine/hooks": 7.3.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 590b6eb123218bc6ecc66cbce0daa39e0b63b955d464acad0bfa76ec6291f7f96adae65778884dc980d46792f3a66de196c072753fba1b923b36ec1e8f793e67
+  languageName: node
+  linkType: hard
+
+"@mantine/store@npm:7.3.1":
+  version: 7.3.1
+  resolution: "@mantine/store@npm:7.3.1"
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 08ceb9d233e1d0cc531ee59b1583e72d95e20bf7cd984a7701ad19498acf6dce07ae0b6cd740516b918e2561b12ac3bb2e801bc72d6dc12c07c5574b27b7680e
   languageName: node
   linkType: hard
 
@@ -7614,6 +7647,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.8.7"
+    csstype: "npm:^3.0.2"
+  checksum: f735074d66dd759b36b158fa26e9d00c9388ee0e8c9b16af941c38f014a37fc80782de83afefd621681b19ac0501034b4f1c4a3bff5caa1b8667f0212b5e124c
+  languageName: node
+  linkType: hard
+
 "dom-serializer@npm:^1.0.1":
   version: 1.4.1
   resolution: "dom-serializer@npm:1.4.1"
@@ -11493,6 +11536,7 @@ __metadata:
     "@mantine/core": "npm:7.3.0"
     "@mantine/form": "npm:^7.3.1"
     "@mantine/hooks": "npm:7.3.0"
+    "@mantine/notifications": "npm:^7.3.1"
     "@next/bundle-analyzer": "npm:^14.0.1"
     "@next/eslint-plugin-next": "npm:^14.0.1"
     "@storybook/addon-essentials": "npm:^7.5.2"
@@ -13087,7 +13131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -13508,6 +13552,21 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 33d38a6d96cf584842695b50c341980944ece23a42155bf0bd1958f02396adb185c7720b88678dc677817fe111783059c0ebcdf7761644006892583b10e258ee
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:4.4.5":
+  version: 4.4.5
+  resolution: "react-transition-group@npm:4.4.5"
+  dependencies:
+    "@babel/runtime": "npm:^7.5.5"
+    dom-helpers: "npm:^5.0.1"
+    loose-envify: "npm:^1.4.0"
+    prop-types: "npm:^15.6.2"
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: 2ba754ba748faefa15f87c96dfa700d5525054a0141de8c75763aae6734af0740e77e11261a1e8f4ffc08fd9ab78510122e05c21c2d79066c38bb6861a886c82
   languageName: node
   linkType: hard
 
