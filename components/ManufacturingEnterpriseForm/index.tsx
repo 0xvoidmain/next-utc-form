@@ -13,15 +13,23 @@ import {
   TextInput,
   rem,
 } from '@mantine/core';
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'clsx';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
 import globalCss from '../../styles/global.module.css';
-import { parseObject } from '@/app/ultils/helpers';
+import { parseObject } from '@/ultils/helpers';
+import { ManufacturingData } from '@/types';
+import classes from './style.module.css';
 
 const ManufacturingEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
+  const [otherUserPosition, setOtherUserPosition] = useState('');
+  const [otherKindOfProduct, setOtherKindOfProduct] = useState('');
+  const [otherLogisticServices, setOtherLogisticServices] = useState('');
+  const [otherCdtIncotermsImport, setOtherCdtIncotermsImport] = useState('');
+  const [otherCdtIncotermsExport, setOtherCdtIncotermsExport] = useState('');
+  const [otherImportantFactor, setOtherImportantFactor] = useState('');
 
   const form = useForm({
     initialValues: {
@@ -81,7 +89,7 @@ const ManufacturingEnterpriseForm = () => {
     },
   });
 
-  const onHandleSubmitForm = async (values: any) => {
+  const onHandleSubmitForm = async (values: ManufacturingData) => {
     await fetch(
       `/api?${new URLSearchParams({
         index: '1',
@@ -104,19 +112,6 @@ const ManufacturingEnterpriseForm = () => {
           PHIẾU KHẢO SÁT CÁC DOANH NGHIỆP SẢN XUẤT, KINH DOANH TRÊN ĐỊA BÀN TỈNH HÀ NAM
         </Text>
       </Flex>
-      {/* <Text className={globalCss.text}>Kính thưa Anh/Chị!</Text>
-      <Text className={globalCss.text}>
-        Chúng tôi là một nhóm nghiên cứu về dịch vụ logistics của Trường Đại học Giao thông vận tải.
-        Đề tài nghiên cứu cấp Tỉnh của chúng tôi là “Giải pháp phát triển dịch vụ Logistics tại Tỉnh
-        Hà Nam”. Nhóm nghiên cứu tiến hành khảo sát này nhằm thu thập thông tin, dữ liệu của các
-        doanh nghiệp sản xuất, kinh doanh sử dụng dịch vụ logistics trên địa bàn Tỉnh Hà Nam. Kết
-        quả khảo sát góp phần quan trọng trong việc hoàn thành đề tài. Mọi thông tin cung cấp trong
-        khảo sát này chỉ dùng cho mục đích nghiên cứu. Nhóm nghiên cứu chân thành cảm ơn và hoan
-        nghênh mọi ý kiến đóng góp, mọi sự hợp tác của Quý Anh/Chị, đồng thời cam kết bảo mật thông
-        tin của người tham gia khảo sát.
-      </Text>
-      <Text className={globalCss.text}>Để trả lời đầy đủ Phiếu hỏi sẽ cần khoảng 15 phút.</Text>
-      <Text className={globalCss.text}>Chân thành cảm ơn sự hợp tác của Quý Anh/Chị.</Text> */}
       <Space h="xl" />
 
       <form onSubmit={form.onSubmit((values) => onHandleSubmitForm(values))}>
@@ -195,7 +190,23 @@ const ManufacturingEnterpriseForm = () => {
               <Radio value="Phó phòng" label="Phó phòng" />
               <Radio value="Trưởng nhóm" label="Trưởng nhóm" />
               <Radio value="Nhân viên" label="Nhân viên" />
-              <Radio value="Mục khác:" label="Mục khác:" />
+              <Radio
+                classNames={{
+                  body: classes.wrapperRadio,
+                }}
+                value={`Mục khác: ${otherUserPosition}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Chức vụ hoặc vị trí công việc khác"
+                      value={otherUserPosition}
+                      onChange={(event) => setOtherUserPosition(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Radio.Group>
         </Box>
@@ -255,7 +266,23 @@ const ManufacturingEnterpriseForm = () => {
               <Checkbox value="Vật phẩm, văn hoá, giáo dục" label="Vật phẩm, văn hoá, giáo dục" />
               <Checkbox value="Sản phẩm hoá chất" label="Sản phẩm hoá chất" />
               <Checkbox value="Sản xuất đồ uống" label="Sản xuất đồ uống" />
-              <Checkbox value="Mục khác:" label="Mục khác:" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherKindOfProduct}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Loại hàng hoá khác"
+                      value={otherKindOfProduct}
+                      onChange={(event) => setOtherKindOfProduct(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>
@@ -441,7 +468,23 @@ const ManufacturingEnterpriseForm = () => {
               <Checkbox value="Bảo hiểm hàng hoá" label="Bảo hiểm hàng hoá" />
               <Checkbox value="Chuỗi cung ứng" label="Chuỗi cung ứng" />
               <Checkbox value="Cross-docking" label="Cross-docking" />
-              <Checkbox value="Mục khác:" label="Mục khác:" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherLogisticServices}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Dịch vụ logistics khác"
+                      value={otherLogisticServices}
+                      onChange={(event) => setOtherLogisticServices(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>
@@ -504,7 +547,23 @@ const ManufacturingEnterpriseForm = () => {
               <Checkbox value="DAP" label="DAP" />
               <Checkbox value="DAT" label="DAT" />
               <Checkbox value="DDP" label="DDP" />
-              <Checkbox value="Mục khác" label="Mục khác" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherCdtIncotermsImport}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Điều kiện Incoterms"
+                      value={otherCdtIncotermsImport}
+                      onChange={(event) => setOtherCdtIncotermsImport(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>
@@ -531,7 +590,23 @@ const ManufacturingEnterpriseForm = () => {
               <Checkbox value="DAP" label="DAP" />
               <Checkbox value="DAT" label="DAT" />
               <Checkbox value="DDP" label="DDP" />
-              <Checkbox value="Mục khác" label="Mục khác" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherCdtIncotermsExport}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Điều kiện Incoterms"
+                      value={otherCdtIncotermsExport}
+                      onChange={(event) => setOtherCdtIncotermsExport(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>
@@ -615,7 +690,7 @@ const ManufacturingEnterpriseForm = () => {
             Tỉnh Hà Nam nói riêng, cũng như ở Việt Nam nói chung (có thể chọn nhiều đáp án)?
           </Text>
           <Checkbox.Group
-            label="Điều kiện Incoterms"
+            label="Yếu tố quan trọng nhất"
             withAsterisk
             {...form.getInputProps('importantFactor')}
           >
@@ -627,7 +702,23 @@ const ManufacturingEnterpriseForm = () => {
               <Checkbox value="Thủ tục hành chính" label="Thủ tục hành chính" />
               <Checkbox value="Chuyển đổi số" label="Chuyển đổi số" />
               <Checkbox value="Đào tạo nhân lực" label="Đào tạo nhân lực" />
-              <Checkbox value="Mục khác" label="Mục khác" />
+              <Checkbox
+                classNames={{
+                  body: classes.wrapperCheckbox,
+                }}
+                value={`Mục khác: ${otherImportantFactor}`}
+                label={
+                  <Flex gap={rem(12)} align="center">
+                    Mục khác:
+                    <TextInput
+                      placeholder="Yếu tố quan trọng nhất"
+                      value={otherImportantFactor}
+                      onChange={(event) => setOtherImportantFactor(event.currentTarget.value)}
+                      w={300}
+                    />
+                  </Flex>
+                }
+              />
             </Flex>
           </Checkbox.Group>
         </Box>

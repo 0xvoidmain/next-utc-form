@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { AppShell, Flex, rem, Burger, Avatar, Text, NavLink } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-import { IconBuildingFactory, IconChevronRight, IconTruckDelivery } from '@tabler/icons-react';
+import { IconBuildingFactory, IconChevronRight, IconListCheck, IconTruckDelivery } from '@tabler/icons-react';
 import { usePathname, useRouter } from 'next/navigation';
 import globalCss from '../../styles/global.module.css';
 import SwitchThemeButton from '../SwitchThemeButton';
@@ -89,6 +89,17 @@ const AppShellWrapper = ({ children }: { children: any }) => {
                 rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
                 variant="subtle"
                 active={pathname === '/manufacturing-enterprise'}
+              />
+              <NavLink
+                onClick={() => {
+                  router.push('/result');
+                  close();
+                }}
+                label="Tổng hợp kết quả"
+                leftSection={<IconListCheck size="1rem" stroke={1.5} />}
+                rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+                variant="subtle"
+                active={pathname === '/result'}
               />
             </Flex>
             {/* </Flex> */}

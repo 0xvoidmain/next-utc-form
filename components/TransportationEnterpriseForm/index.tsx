@@ -18,7 +18,8 @@ import cx from 'clsx';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
 import globalCss from '../../styles/global.module.css';
-import { parseObject } from '@/app/ultils/helpers';
+import { parseObject } from '@/ultils/helpers';
+import { TransportationData } from '@/types';
 
 const TransportationEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -66,7 +67,7 @@ const TransportationEnterpriseForm = () => {
     },
   });
 
-  const onHandleSubmitForm = async (values: any) => {
+  const onHandleSubmitForm = async (values: TransportationData) => {
     await fetch(
       `/api?${new URLSearchParams({
         index: '0',
@@ -89,19 +90,6 @@ const TransportationEnterpriseForm = () => {
           PHIẾU KHẢO SÁT CÁC DOANH NGHIỆP VẬN TẢI CHUYÊN CHỞ HÀNG HOÁ TRÊN ĐỊA BÀN TỈNH HÀ NAM
         </Text>
       </Flex>
-      {/* <Text className={globalCss.text}>Kính thưa Anh/Chị!</Text>
-      <Text className={globalCss.text}>
-        Chúng tôi là một nhóm nghiên cứu về dịch vụ logistics của Trường Đại học Giao thông vận tải.
-        Đề tài nghiên cứu cấp Tỉnh của chúng tôi là “Giải pháp phát triển dịch vụ Logistics tại Tỉnh
-        Hà Nam”. Nhóm nghiên cứu tiến hành khảo sát này nhằm thu thập thông tin, dữ liệu, kế hoạch,
-        phân phối, hành trình vận chuyển hàng hoá giữa các doanh nghiệp trong khu vực Tỉnh Hà Nam
-        cũng như các tỉnh Phía Bắc. Kết quả khảo sát góp phần quan trọng cho nhóm nghiên cứu hoàn
-        thành đề tài. Mọi thông tin cung cấp trong khảo sát này chỉ dùng cho mục đích nghiên cứu.
-        Nhóm nghiên cứu chân thành cảm ơn và hoan nghênh mọi ý kiến đóng góp, mọi sự hợp tác của Quý
-        Anh/Chị, đồng thời cam kết bảo mật thông tin của người tham gia khảo sát.
-      </Text>
-      <Text className={globalCss.text}>Để trả lời đầy đủ Phiếu hỏi sẽ cần khoảng 15 phút.</Text>
-      <Text className={globalCss.text}>Chân thành cảm ơn sự hợp tác của Quý Anh/Chị.</Text> */}
       <Space h="xl" />
 
       <form onSubmit={form.onSubmit((values) => onHandleSubmitForm(values))}>
