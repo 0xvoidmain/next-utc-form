@@ -17,12 +17,12 @@ import React, { useState } from 'react';
 import cx from 'clsx';
 import { useForm } from '@mantine/form';
 import { useMediaQuery } from '@mantine/hooks';
+import { notifications } from '@mantine/notifications';
 import globalCss from '../../styles/global.module.css';
 import { parseObject } from '@/ultils/helpers';
 import { ManufacturingData } from '@/types';
 import classes from './style.module.css';
 import notiCss from '../../styles/notification.module.css';
-import { notifications } from '@mantine/notifications';
 
 const ManufacturingEnterpriseForm = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -118,7 +118,7 @@ const ManufacturingEnterpriseForm = () => {
         message: 'Submit form thành công',
         classNames: notiCss,
       });
-      form.reset()
+      form.reset();
     } else {
       notifications.show({
         color: 'red',

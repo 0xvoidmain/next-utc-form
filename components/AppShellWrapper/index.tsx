@@ -3,11 +3,16 @@
 import React, { useEffect, useState } from 'react';
 import { AppShell, Flex, rem, Burger, Avatar, Text, NavLink } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-import { IconBuildingFactory, IconChevronRight, IconListCheck, IconTruckDelivery } from '@tabler/icons-react';
+import {
+  IconBuildingFactory,
+  IconChevronRight,
+  IconListCheck,
+  IconTruckDelivery,
+} from '@tabler/icons-react';
 import { usePathname, useRouter } from 'next/navigation';
+import { Notifications } from '@mantine/notifications';
 import globalCss from '../../styles/global.module.css';
 import SwitchThemeButton from '../SwitchThemeButton';
-import { Notifications } from '@mantine/notifications';
 
 const AppShellWrapper = ({ children }: { children: any }) => {
   const [isClient, setIsClient] = useState(false);
@@ -23,7 +28,6 @@ const AppShellWrapper = ({ children }: { children: any }) => {
   const router = useRouter();
   return (
     <>
-    
       {isClient && (
         <AppShell
           transitionDuration={500}
@@ -108,8 +112,9 @@ const AppShellWrapper = ({ children }: { children: any }) => {
           </AppShell.Navbar>
 
           <AppShell.Main>
-          <Notifications position="top-right" zIndex={1000} autoClose={4000}/>
-            {children}</AppShell.Main>
+            <Notifications position="top-right" zIndex={1000} autoClose={4000} />
+            {children}
+          </AppShell.Main>
         </AppShell>
       )}
     </>
