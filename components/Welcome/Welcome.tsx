@@ -7,9 +7,6 @@ import globalCss from '../../styles/global.module.css';
 export function Welcome() {
   return (
     <Container>
-      <Title className={classes.title} ta="center" mt={100}>
-        Chào mừng đến với
-      </Title>
       <Title className={classes.title} ta="center" mt={20}>
         <Text
           inherit
@@ -17,25 +14,23 @@ export function Welcome() {
           component="span"
           gradient={{ from: 'orange', to: 'yellow' }}
         >
-          TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI
+          “Hà Nam, Phát triển logistics – khẳng định vị thế”
         </Text>
       </Title>
 
       <Text className={globalCss.text} mt={rem(30)}>
-        Kính thưa Anh/Chị!
-        <br />
-        Chúng tôi là một nhóm nghiên cứu về dịch vụ logistics của Trường Đại học Giao thông vận tải.
-        Đề tài nghiên cứu cấp Tỉnh của chúng tôi là “Giải pháp phát triển dịch vụ Logistics tại Tỉnh
-        Hà Nam”. Nhóm nghiên cứu tiến hành khảo sát này nhằm thu thập thông tin, dữ liệu, kế hoạch,
-        phân phối, hành trình vận chuyển hàng hoá giữa các doanh nghiệp trong khu vực Tỉnh Hà Nam
-        cũng như các tỉnh Phía Bắc. Kết quả khảo sát góp phần quan trọng cho nhóm nghiên cứu hoàn
-        thành đề tài. Mọi thông tin cung cấp trong khảo sát này chỉ dùng cho mục đích nghiên cứu.
-        Nhóm nghiên cứu chân thành cảm ơn và hoan nghênh mọi ý kiến đóng góp, mọi sự hợp tác của Quý
-        Anh/Chị, đồng thời cam kết bảo mật thông tin của người tham gia khảo sát.
-        <br />
-        Để trả lời đầy đủ Phiếu hỏi sẽ cần khoảng 15 phút.
-        <br />
-        Chân thành cảm ơn sự hợp tác của Quý Anh/Chị.
+        Hà Nam có lợi thế nằm ở vị trí địa chiến lược là cửa ngõ của vùng
+        Thủ đô Hà Nội; gần nguồn nhân lực chất lượng cao, các cảng hàng không
+        và cảng biển trọng điểm của vùng Đồng bằng sông Hồng và cả nước.
+        Điều kiện tự nhiên thuận lợi, vị trí đắc địa, cơ sở hạ tầng đầu tư đồng bộ,
+        nguồn nhân lực đa dạng là các nhân tố thúc đẩy phát triển dịch vụ logistics tại Tỉnh Hà Nam.
+      </Text>
+      <Text className={globalCss.text} mt={rem(30)}>
+        Giải pháp phát triển dịch vụ logistics tại Tỉnh Hà Nam là đề tài mang tính
+        cấp thiết và có ý nghĩa vô cùng sâu sắc cho sự phát triển kinh tế - xã hội tại Tỉnh.
+        Vươn mình ra biển lớn, khẳng định vị thế và hội nhập quốc tế,
+        trong tương lai Hà Nam hướng tới trở thành thành phố
+        trực thuộc Trung ương, phát triển bền vững.
       </Text>
     </Container>
   );
