@@ -193,7 +193,6 @@ const IsSelfLogistic = (isSelfLogistic: PropChart) => {
           style={{ maxHeight: '300px' }}
           options={options}
           data={dataArcElement}
-          // plugins={[ChartDataLabels]}
         />
       </div>
     </>
