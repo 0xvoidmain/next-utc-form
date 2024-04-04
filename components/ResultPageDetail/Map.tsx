@@ -59,12 +59,13 @@ const Map = () => {
         </>
       ) : (
         <div>
+          <a href='http://103.149.87.49:3000/' target='__blank'>Xem bản đồ</a>
           <div>
             <img src="/assets/images/map.png" style={{width: '100%'}}/>
           </div>
           <select onChange={handleChange}>
           <option value="">Select an item</option>
-          {data.rows.map((item, i) => (
+          {(data.rows || []).map((item, i) => (
             <option key={item + i} value={item}>{item}</option>
           ))}
         </select>
