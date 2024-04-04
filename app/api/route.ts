@@ -22,19 +22,6 @@ async function loadMap() {
   var rows: any;
   var mapData: number[][] = [];
   if (data == null) {
-    // data = await csv().fromFile(path.join(__dirname, '../../../../data.csv'), {
-      
-    // });
-    // const result = excelToJson({
-    //   sourceFile: path.join(__dirname, '../../../../output_abs.xlsx'),
-    //   columnToKey: {
-    //     '*': '{{columnHeader}}'
-    //   }
-    // });
-
-    // data = result['Sheet1']
-
-    // console.log(Object.keys(result))
 
     var lines = fs.readFileSync(path.join(__dirname, '../../../../data.csv'), 'utf8').trim().split('\n')
     cols = lines[0].split("\t").slice(1).map(e => e.trim())
