@@ -7,6 +7,7 @@ import { TransportationServices, IsSelfLogistic, QuantityLogisticEmployees, Logi
 import TransportationResult from './TransportationResult';
 import ManufacturingResult from './ManufacturingResult';
 import classes from './style.module.css';
+import Map from './Map';
 
 const ResultPageDetail = () => {
   const iconStyle = { width: rem(12), height: rem(12) };
@@ -84,6 +85,10 @@ const ResultPageDetail = () => {
           <Tabs.Tab value="chart" leftSection={<IconChartBar style={iconStyle} />}>
             Chart
           </Tabs.Tab>
+
+          <Tabs.Tab value="map" leftSection={<IconChartBar style={iconStyle} />}>
+            Map
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="transportation">
@@ -99,6 +104,10 @@ const ResultPageDetail = () => {
           <IsSelfLogistic isSelfLogistic={isSelfLogistic} />
           <QuantityLogisticEmployees quantityLogisticEmployees={quantityLogisticEmployees} />
           <LogisticServices logisticServices={logisticServices} />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="map">
+          <Map/>
         </Tabs.Panel>
       </Tabs>
     </Container>
