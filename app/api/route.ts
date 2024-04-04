@@ -1,6 +1,11 @@
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
+import csv from 'csvtojson'
+import excelToJson from 'convert-excel-to-json';
+
 
 const auth = {
   email: 'utc-thaydung-webdata@utc-thaydung-webdata.iam.gserviceaccount.com',
@@ -13,10 +18,59 @@ const auth = {
 
 const spreadsheetID = '1VkQpa9D_95a1kbElwE5vfbJCq9u7MQdAfXVGR-uI4sg';
 
+var data: any = null
+async function loadMap() {
+  var cols: any;
+  var rows: any;
+  var mapData: number[][] = [];
+  if (data == null) {
+    // data = await csv().fromFile(path.join(__dirname, '../../../../data.csv'), {
+      
+    // });
+    // const result = excelToJson({
+    //   sourceFile: path.join(__dirname, '../../../../output_abs.xlsx'),
+    //   columnToKey: {
+    //     '*': '{{columnHeader}}'
+    //   }
+    // });
+
+    // data = result['Sheet1']
+
+    // console.log(Object.keys(result))
+
+    var lines = fs.readFileSync(path.join(__dirname, '../../../../data.csv'), 'utf8').trim().split('\n')
+    cols = lines[0].split("\t").slice(1).map(e => e.trim())
+    rows = lines.map(e => e.split("\t")[0]).slice(1).map(e => e.trim())
+    for (var i = 1; i < lines.length; i++) {
+      mapData[i] = lines[i].split("\t").splice(1).map(e => parseFloat(e) || 0)
+    }
+
+    mapData.slice(1)
+
+    data = {
+      rows,
+      cols,
+      mapData
+    }
+  }
+
+  // fs.writeFileSync(path.join(__dirname, '../../../../output_abs.json'), JSON.stringify(data, null, 4), 'utf-8')
+
+  return data
+}
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const index = Number(searchParams.get('index'));
+
+    if (index == 2) {
+      const data = await loadMap();
+      return NextResponse.json({
+        message: 'success',
+        data,
+      });
+    }
 
     const serviceAccountAuth = new JWT(auth);
     const doc = new GoogleSpreadsheet(spreadsheetID, serviceAccountAuth);
@@ -28,7 +82,7 @@ export async function GET(request: Request) {
     });
   } catch (error) {
     return NextResponse.json({
-      message: 'fail',
+      message: (error as any).toString(),
     });
   }
 }

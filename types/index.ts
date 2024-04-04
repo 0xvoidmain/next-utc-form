@@ -1,3 +1,9 @@
+export interface MapData {
+  rows: string[]
+  cols: string[]
+  mapData: number[][]
+}
+
 export interface ManufacturingData {
   nameEnterprise: string;
   addressEnterprise: string;
