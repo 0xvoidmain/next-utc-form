@@ -3,8 +3,6 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import csv from 'csvtojson'
-import excelToJson from 'convert-excel-to-json';
 
 
 const auth = {
