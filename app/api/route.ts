@@ -29,10 +29,10 @@ async function loadMap() {
   //   cols = lines[0].split("\t").slice(1).map(e => e.trim())
   //   rows = lines.map(e => e.split("\t")[0]).slice(1).map(e => e.trim())
   //   for (var i = 1; i < lines.length; i++) {
-  //     mapData[i] = lines[i].split("\t").splice(1).map(e => parseFloat(e) || 0)
+  //     mapData[i] = lines[i].split("\t").splice(1).map(e => parseFloat(e) || 0).map(e => parseFloat(e.toFixed(1)))
   //   }
 
-  //   mapData.slice(1)
+  //   mapData = mapData.slice(1)
 
   //   data = {
   //     rows,
@@ -41,7 +41,7 @@ async function loadMap() {
   //   }
   // }
 
-  // fs.writeFileSync(path.join(__dirname, '../../../../output_abs.json'), JSON.stringify(data, null, 4), 'utf-8')
+  // fs.writeFileSync(path.join(__dirname, '../../../../output_abs.json'), JSON.stringify(data), 'utf-8')
 
   return data
 }
