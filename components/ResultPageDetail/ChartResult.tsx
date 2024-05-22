@@ -910,16 +910,16 @@ const TransportationWays = (transportationWays: PropChart) => {
                 },
             },
         },
-        scales: {
-            x: {
-                ticks: {
-                    max: 100,
-                    callback(value) {
-                        return `${value}%`;
-                    },
-                },
-            },
-        },
+        // scales: {
+        //     x: {
+        //         ticks: {
+        //             max: 100,
+        //             callback(value) {
+        //                 return `${value}%`;
+        //             },
+        //         },
+        //     },
+        // },
     };
     const dataArcElement = {
         labels: ['Vận tải nội địa', 'Vận tải quốc tế', 'Khai báo hải quan', 'Làm thủ tục xuất/nhập khẩu', 'Đóng gói hàng hóa', 'Xếp dỡ hàng hóa', 'Giao nhận hàng hóa', 'Thu mua nguyên vật liệu', 'Dán nhãn, ký mã hiệu', 'Kho ngoại quan', 'Quản lý tồn kho', 'Quản lý hệ thống thông tin', 'Phân phối', 'Kiểm tra chất lượng', 'Xử lý đơn hàng', 'Bảo hiểm hàng hóa', 'Chuỗi cung ứng', 'Cross-docking','Không', 'Kho bãi', 'Hải châm', 'Khách hàng', 'Dịch vụ hải quan', 'Công ty xử lý nước thải', 'Xây dựng trường mầm non', 'Xây dựng', 'Hậu cần', 'Dịch vụ tư vấn logistics', 'Chỉ sản xuất phụ tùng', 'Sản xuất phụ tùng', 'Không sử dụng'],
@@ -1032,16 +1032,16 @@ const ImportantFactor = (importantFactor: PropChart) => {
                 },
             },
         },
-        scales: {
-            x: {
-                ticks: {
-                    max: 100,
-                    callback(value) {
-                        return `${value}%`;
-                    },
-                },
-            },
-        },
+        // scales: {
+        //     x: {
+        //         ticks: {
+        //             max: 100,
+        //             callback(value) {
+        //                 return `${value}%`;
+        //             },
+        //         },
+        //     },
+        // },
     };
     const dataArcElement = {
         labels: ['Chính sách thuế', 'Thủ tục hải quan', 'Hành lang pháp lý', 'Cơ sở hạ tầng', 'Thủ tục hành chính', 'Chuyển đổi số', 'Đào tạo nhân lực', 'Không', 'Hải châm', '', 'Vị trí địa lý, tăng cường hợp tác', 'Cơ sở hạ tầng là yếu tố vô cùng quan trọng để ngành logistics phát triển', 'Không sản xuất hàng hóa cụ thể', 'Xây dựng trường mầm non tư thục và phòng khám đa khoa', 'Tất cả ý trên', 'Hà Nam cơ sở hạ tầng vẫn chưa phát triển', 'Hà Nam cần đầu tư nhiều hơn về cơ sở hạ tầng', 'Tất cả', 'Tăng cường hợp tác quốc tế'],
@@ -1148,16 +1148,16 @@ const QuantityEmployees_0 = (quantityEmployees_0: PropChart) => {
                 },
             },
         },
-        scales: {
-            x: {
-                ticks: {
-                    max: 100,
-                    callback(value) {
-                        return `${value}%`;
-                    },
-                },
-            },
-        },
+        // scales: {
+        //     x: {
+        //         ticks: {
+        //             max: 100,
+        //             callback(value) {
+        //                 return `${value}%`;
+        //             },
+        //         },
+        //     },
+        // },
     };
     const dataArcElement = {
         labels: ['Dưới 50', '51 - 100', '101 - 200', '201 - 500', '501 - 1000', '1001 - 2000', '2001 trở lên'],
@@ -1262,16 +1262,16 @@ const LogisticServices_1 = (logisticServices_1: PropChart) => {
                 },
             },
         },
-        scales: {
-            x: {
-                ticks: {
-                    max: 100,
-                    callback(value) {
-                        return `${value}%`;
-                    },
-                },
-            },
-        },
+        // scales: {
+        //     x: {
+        //         ticks: {
+        //             max: 100,
+        //             callback(value) {
+        //                 return `${value}%`;
+        //             },
+        //         },
+        //     },
+        // },
     };
     const dataArcElement = {
         labels: ['Dệt may', 'Thủy sản', 'Nông sản', 'Điện thoại các loại và linh kiện', 'Máy vi tính, sản phẩm điện tử và linh kiện', 'Da giày, túi sách','.', 'Thép', 'Nhựa và sản phẩm từ nhựa', 'Máy móc, thiết bị và phụ tùng khác', 'Gỗ và sản phẩm từ gỗ', 'Than', 'Xăng dầu và các loại nhiên liệu khác', 'Vật phẩm, văn hóa, giáo dục', 'Sản phẩm hóa chất', 'Sản phẩm đồ uống'],
