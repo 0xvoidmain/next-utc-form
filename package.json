@@ -25,6 +25,7 @@
     "@mantine/notifications": "^7.3.1",
     "@next/bundle-analyzer": "^14.0.1",
     "@tabler/icons-react": "^2.40.0",
+    "@types/googlemaps": "^3.43.3",
     "chart.js": "^4.0.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "clsx": "^2.0.0",
