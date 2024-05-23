@@ -14,7 +14,7 @@ import {
   TransportationWays,
   ImportantFactor,
   QuantityEmployees_0,
-  LogisticServices_1, LogisticServices_Xep
+  LogisticServices_1, LogisticServices_Xep,
 } from './ChartResult';
 import TransportationResult from './TransportationResult';
 import ManufacturingResult from './ManufacturingResult';
@@ -184,13 +184,16 @@ const ResultPageDetail = () => {
           <LogisticExpense logisticExpense={logisticExpense} />
           <TransportationWays transportationWays={transportationWays} />
           <ImportantFactor importantFactors={importantFactors} />
+          {/* eslint-disable-next-line react/jsx-pascal-case */}
           <QuantityEmployees_0 quantityEmployees_0={quantityEmployees_0} />
+          {/* eslint-disable-next-line react/jsx-pascal-case */}
           <LogisticServices_1 logisticServices_1={logisticServices_1} />
+          {/* eslint-disable-next-line react/jsx-pascal-case */}
           <LogisticServices_Xep logisticServices_Xep={logisticServices_Xep} />
         </Tabs.Panel>
 
         <Tabs.Panel value="map">
-          <Map/>
+          <Map />
         </Tabs.Panel>
       </Tabs>
     </Container>

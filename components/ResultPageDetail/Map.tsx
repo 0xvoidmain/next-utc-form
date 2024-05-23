@@ -1,30 +1,30 @@
 'use client';
 
-import {Container, Flex, Space, rem, Text, Skeleton, Table} from '@mantine/core';
-import React, {useEffect, useState} from 'react';
+import { Container, Flex, Space, rem, Text } from '@mantine/core';
+import React, { useEffect, useState } from 'react';
 import cx from 'clsx';
 import globalCss from '../../styles/global.module.css';
-import {MapData} from '@/types';
+import { MapData } from '@/types';
 import classes from './style.module.css';
 
 const Map = () => {
     const [data, setData] = useState<MapData>({
         rows: [],
         cols: [],
-        mapData: []
+        mapData: [],
     });
     const [loading, setLoading] = useState(true);
     const [selectedItem, setSelectedItem] = useState([]);
 
     const handleChange = (event: any) => {
         const selectedItemName = event.target.value;
-        const foundItem = data.rows.indexOf(selectedItemName)
+        const foundItem = data.rows.indexOf(selectedItemName);
         if (foundItem >= 0) {
-            var list = data.mapData[foundItem].map((e, i) => ({
+            let list = data.mapData[foundItem].map((e, i) => ({
                 vt: data.cols[i],
-                kc: e
-            }))
-            list = list.sort((a, b) => a.kc - b.kc)
+                kc: e,
+            }));
+            list = list.sort((a, b) => a.kc - b.kc);
             setSelectedItem(list as any);
         }
     };
@@ -44,9 +44,9 @@ const Map = () => {
     }, []);
     return (
         <Container
-            m={0}
-            py={rem(20)}
-            classNames={{
+          m={0}
+          py={rem(20)}
+          classNames={{
                 root: classes.wrapper,
             }}
         >
@@ -55,16 +55,17 @@ const Map = () => {
                     DOANH NGHIỆP SẢN XUẤT, KINH DOANH
                 </Text>
             </Flex>
-            <Space h="xl"/>
+            <Space h="xl" />
             {loading ? (
                 <>
                     Loading
                 </>
             ) : (
                 <div>
-                    <a href="http://103.149.87.49:3000/" target='__blank'>Xem bản đồ</a>
+                    <a href="http://103.149.87.49:3000/" target="__blank">Xem bản đồ</a>
                     <div>
-                        <img src="/assets/images/map.png" style={{width: '100%'}}/>
+                        {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                        <img src="/assets/images/map.png" style={{ width: '100%' }} />
                     </div>
                     <select onChange={handleChange}>
                         <option value="">Select an item</option>

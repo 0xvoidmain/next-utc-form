@@ -10,7 +10,7 @@ import {
     Legend,
     ChartOptions,
 } from 'chart.js';
-import {Bar, Pie} from 'react-chartjs-2';
+import { Bar, Pie } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
@@ -121,9 +121,10 @@ const TransportationServices = (transportationServices?: PropChart) => {
             <h4>1. Biểu đồ thể hiện số lượng nhân viên trong doanh nghiệp vận tải:</h4>
             <div style={{
                 maxWidth: '800px',
-                maxHeight: '300px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '300px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -198,17 +199,18 @@ const IsSelfLogistic = (isSelfLogistic: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 2. Biểu đồ doanh nghiệp vận tải có cung cấp dịch vụ cho thuê kho bãi:
             </h4>
             <div style={{
                 maxWidth: '660px',
-                maxHeight: '300px'
-            }}>
+                maxHeight: '300px',
+            }}
+            >
                 <Pie
-                    style={{maxHeight: '300px'}}
-                    options={options}
-                    data={dataArcElement}
+                  style={{ maxHeight: '300px' }}
+                  options={options}
+                  data={dataArcElement}
                 />
             </div>
         </>
@@ -304,14 +306,15 @@ const QuantityLogisticEmployees = (quantityLogisticEmployees: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 3. Tỷ lệ người lao động có chuyên môn nghiệp vụ về logistics :
             </h4>
             <div style={{
                 maxWidth: '800px',
-                maxHeight: '300px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '300px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -418,14 +421,15 @@ const LogisticServices = (logisticServices: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 4. Biểu đồ thể hiện tỷ lệ lựa chọn phương thức vận chuyển hàng hoá:
             </h4>
             <div style={{
                 maxWidth: '800px',
-                maxHeight: '300px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '300px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -498,17 +502,18 @@ const Doituongkhaosat = (userPosition: PropChart) => {
     };
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 5. Biểu đồ thể hiện tỷ lệ đối tượng tham gia khảo sát trong doanh nghiệp:
             </h4>
             <div style={{
                 maxWidth: '660px',
-                maxHeight: '300px'
-            }}>
+                maxHeight: '300px',
+            }}
+            >
                 <Pie
-                    style={{maxHeight: '300px'}}
-                    options={options}
-                    data={dataArcElement}
+                  style={{ maxHeight: '300px' }}
+                  options={options}
+                  data={dataArcElement}
                 />
             </div>
         </>
@@ -623,14 +628,15 @@ const QuantityEmployees = (quantityEmployees: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 6. Biểu đồ nguồn lao động tại doanh nghiệp sản xuất, kinh doanh tại tỉnh Hà Nam:
             </h4>
             <div style={{
                 maxWidth: '800px',
-                maxHeight: '300px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '300px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -665,7 +671,6 @@ const LogisticExpense = (logisticExpense: PropChart) => {
             Math.round(tu16den20phantram),
             Math.round(tren21phantram),
         ];
-
     }
 
     const options: ChartOptions<'bar'> = {
@@ -724,14 +729,16 @@ const LogisticExpense = (logisticExpense: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
+                {/* eslint-disable-next-line max-len */}
                 7. Biểu đồ Chi phí logistics chiếm tỷ lệ trong doanh thu của doanh nghiệp sản xuất, kinh doanh:
             </h4>
             <div style={{
                 maxWidth: '800px',
-                maxHeight: '300px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '300px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -742,106 +749,37 @@ const TransportationWays = (transportationWays: PropChart) => {
     if (transportationWays && transportationWays.transportationWays) {
         const totalCount = transportationWays.transportationWays.length;
         // In ra totalCount
-        let vantainoidia = (transportationWays.transportationWays.filter((service: any) => service.includes('Vận tải nội địa')).length / totalCount) * 100;
-        let vantaiquocte = ((transportationWays.transportationWays.filter((service: any) => service.includes('Vận tải quốc tế')).length / totalCount) * 100);
-        let khaibaohaiquan = (transportationWays.transportationWays.filter((service: any) => service.includes('Khai báo hải quan')).length / totalCount) * 100;
-        let lamthutucnhapxuatkhau = (transportationWays.transportationWays.filter((service: any) => service.includes('Làm thủ tục xuất/nhập khẩu')).length / totalCount) * 100;
-        let donggoihanghoa = (transportationWays.transportationWays.filter((service: any) => service.includes('Đóng gói hàng hoá')).length / totalCount) * 100;
-        let xepdohanghoa = (transportationWays.transportationWays.filter((service: any) => service.includes('Xếp dỡ hàng hoá')).length / totalCount) * 100;
-        let giaonhanhang = (transportationWays.transportationWays.filter((service: any) => service.includes('Giao nhận hàng hoá')).length / totalCount) * 100;
-        let thumuanguyenvatlieu = (transportationWays.transportationWays.filter((service: any) => service.includes('Thu mua nguyên vật liệu')).length / totalCount) * 100;
-        let dannhankymahieu = (transportationWays.transportationWays.filter((service: any) => service.includes('Dán nhãn, ký mã hiệu')).length / totalCount) * 100;
-        let khongoaiquan = (transportationWays.transportationWays.filter((service: any) => service.includes('Kho ngoại quan')).length / totalCount) * 100;
-        let quanlytonkho = (transportationWays.transportationWays.filter((service: any) => service.includes('Quản lý tồn kho')).length / totalCount) * 100;
-        let quanlyhethongthongtin = (transportationWays.transportationWays.filter((service: any) => service.includes('Quản lý hệ thống thông tin')).length / totalCount) * 100;
-        let phanphoi = (transportationWays.transportationWays.filter((service: any) => service.includes('Phân phối')).length / totalCount) * 100;
-        let kiemtrachatluong = (transportationWays.transportationWays.filter((service: any) => service.includes('Kiểm tra chất lượng')).length / totalCount) * 100;
-        let xulydonhang = (transportationWays.transportationWays.filter((service: any) => service.includes('Xử lý đơn hàng')).length / totalCount) * 100;
-        let baohiemhanghoa = (transportationWays.transportationWays.filter((service: any) => service.includes('Bảo hiểm hàng hoá')).length / totalCount) * 100;
-        let chuoicungung = (transportationWays.transportationWays.filter((service: any) => service.includes('Chuỗi cung ứng')).length / totalCount) * 100;
-        let crossdocking = (transportationWays.transportationWays.filter((service: any) => service.includes('Cross-docking')).length / totalCount) * 100;
-        let khong = (transportationWays.transportationWays.filter((service: any) => service.includes('không')).length / totalCount) * 100;
-        let Khobai = (transportationWays.transportationWays.filter((service: any) => service.includes('Kho bãi')).length / totalCount) * 100;
-        let haicham = (transportationWays.transportationWays.filter((service: any) => service.includes('..')).length / totalCount) * 100;
-        let khachhang = (transportationWays.transportationWays.filter((service: any) => service.includes('Khách hàng')).length / totalCount) * 100;
-        let dichvuhaiquan = (transportationWays.transportationWays.filter((service: any) => service.includes('Dịch vụ hải quan')).length / totalCount) * 100;
-        let congtyxulinuocthai = (transportationWays.transportationWays.filter((service: any) => service.includes('Công ty xử lý nước thải')).length / totalCount) * 100;
-        let Xaydungtruongmamnon = (transportationWays.transportationWays.filter((service: any) => service.includes('Xây dựng trường mầm non')).length / totalCount) * 100;
-        let Xaydung = (transportationWays.transportationWays.filter((service: any) => service.includes('Xây dựng')).length / totalCount) * 100;
-        let haucan = (transportationWays.transportationWays.filter((service: any) => service.includes('Hậu cần')).length / totalCount) * 100;
-        let dichvutuvanlogicstic = (transportationWays.transportationWays.filter((service: any) => service.includes('Dịch vụ tư vấn logistics')).length / totalCount) * 100;
-        let chisanxuatphutung = (transportationWays.transportationWays.filter((service: any) => service.includes('Chỉ sản xuất phụ tùng')).length / totalCount) * 100;
-        let sanxuatphutung = (transportationWays.transportationWays.filter((service: any) => service.includes('Sản xuất phụ tùng')).length / totalCount) * 100;
-        let khongsudung = (transportationWays.transportationWays.filter((service: any) => service.includes('Không sử dụng')).length / totalCount) * 100;
-        // const totalPercentage =
-        //     vantainoidia +
-        //     vantaiquocte +
-        //     khaibaohaiquan +
-        //     lamthutucnhapxuatkhau +
-        //     donggoihanghoa +
-        //     xepdohanghoa +
-        //     giaonhanhang +
-        //     thumuanguyenvatlieu +
-        //     dannhankymahieu +
-        //     khongoaiquan +
-        //     quanlytonkho +
-        //     quanlyhethongthongtin +
-        //     phanphoi +
-        //     kiemtrachatluong +
-        //     xulydonhang +
-        //     baohiemhanghoa +
-        //     chuoicungung +
-        //     crossdocking +
-        //     khong +
-        //     Khobai +
-        //     haicham +
-        //     khachhang +
-        //     dichvuhaiquan +
-        //     congtyxulinuocthai +
-        //     Xaydungtruongmamnon +
-        //     Xaydung +
-        //     haucan +
-        //     dichvutuvanlogicstic +
-        //     chisanxuatphutung +
-        //     sanxuatphutung +
-        //     khongsudung;
-        //
-        // // Check Total %
-        // if (totalPercentage !== 100) {
-        //     // change
-        //     const adjustmentFactor = 100 / totalPercentage;
-        //     vantainoidia *= adjustmentFactor;
-        //     vantaiquocte *= adjustmentFactor;
-        //     khaibaohaiquan *= adjustmentFactor;
-        //     lamthutucnhapxuatkhau *= adjustmentFactor;
-        //     donggoihanghoa *= adjustmentFactor;
-        //     xepdohanghoa *= adjustmentFactor;
-        //     giaonhanhang *= adjustmentFactor;
-        //     thumuanguyenvatlieu *= adjustmentFactor;
-        //     dannhankymahieu *= adjustmentFactor;
-        //     khongoaiquan *= adjustmentFactor;
-        //     quanlytonkho *= adjustmentFactor;
-        //     quanlyhethongthongtin *= adjustmentFactor;
-        //     phanphoi *= adjustmentFactor;
-        //     kiemtrachatluong *= adjustmentFactor;
-        //     xulydonhang *= adjustmentFactor;
-        //     baohiemhanghoa *= adjustmentFactor;
-        //     chuoicungung *= adjustmentFactor;
-        //     crossdocking *= adjustmentFactor;
-        //     khong *= adjustmentFactor;
-        //     Khobai *= adjustmentFactor;
-        //     haicham *= adjustmentFactor;
-        //     khachhang *= adjustmentFactor;
-        //     dichvuhaiquan *= adjustmentFactor;
-        //     congtyxulinuocthai *= adjustmentFactor;
-        //     Xaydungtruongmamnon *= adjustmentFactor;
-        //     Xaydung *= adjustmentFactor;
-        //     haucan *= adjustmentFactor;
-        //     dichvutuvanlogicstic *= adjustmentFactor;
-        //     chisanxuatphutung *= adjustmentFactor;
-        //     sanxuatphutung *= adjustmentFactor;
-        //     khongsudung *= adjustmentFactor;
-        // }
+        const vantainoidia = (transportationWays.transportationWays.filter((service: any) => service.includes('Vận tải nội địa')).length / totalCount) * 100;
+        const vantaiquocte = ((transportationWays.transportationWays.filter((service: any) => service.includes('Vận tải quốc tế')).length / totalCount) * 100);
+        const khaibaohaiquan = (transportationWays.transportationWays.filter((service: any) => service.includes('Khai báo hải quan')).length / totalCount) * 100;
+        const lamthutucnhapxuatkhau = (transportationWays.transportationWays.filter((service: any) => service.includes('Làm thủ tục xuất/nhập khẩu')).length / totalCount) * 100;
+        const donggoihanghoa = (transportationWays.transportationWays.filter((service: any) => service.includes('Đóng gói hàng hoá')).length / totalCount) * 100;
+        const xepdohanghoa = (transportationWays.transportationWays.filter((service: any) => service.includes('Xếp dỡ hàng hoá')).length / totalCount) * 100;
+        const giaonhanhang = (transportationWays.transportationWays.filter((service: any) => service.includes('Giao nhận hàng hoá')).length / totalCount) * 100;
+        const thumuanguyenvatlieu = (transportationWays.transportationWays.filter((service: any) => service.includes('Thu mua nguyên vật liệu')).length / totalCount) * 100;
+        const dannhankymahieu = (transportationWays.transportationWays.filter((service: any) => service.includes('Dán nhãn, ký mã hiệu')).length / totalCount) * 100;
+        const khongoaiquan = (transportationWays.transportationWays.filter((service: any) => service.includes('Kho ngoại quan')).length / totalCount) * 100;
+        const quanlytonkho = (transportationWays.transportationWays.filter((service: any) => service.includes('Quản lý tồn kho')).length / totalCount) * 100;
+        const quanlyhethongthongtin = (transportationWays.transportationWays.filter((service: any) => service.includes('Quản lý hệ thống thông tin')).length / totalCount) * 100;
+        const phanphoi = (transportationWays.transportationWays.filter((service: any) => service.includes('Phân phối')).length / totalCount) * 100;
+        const kiemtrachatluong = (transportationWays.transportationWays.filter((service: any) => service.includes('Kiểm tra chất lượng')).length / totalCount) * 100;
+        const xulydonhang = (transportationWays.transportationWays.filter((service: any) => service.includes('Xử lý đơn hàng')).length / totalCount) * 100;
+        const baohiemhanghoa = (transportationWays.transportationWays.filter((service: any) => service.includes('Bảo hiểm hàng hoá')).length / totalCount) * 100;
+        const chuoicungung = (transportationWays.transportationWays.filter((service: any) => service.includes('Chuỗi cung ứng')).length / totalCount) * 100;
+        const crossdocking = (transportationWays.transportationWays.filter((service: any) => service.includes('Cross-docking')).length / totalCount) * 100;
+        const khong = (transportationWays.transportationWays.filter((service: any) => service.includes('không')).length / totalCount) * 100;
+        const Khobai = (transportationWays.transportationWays.filter((service: any) => service.includes('Kho bãi')).length / totalCount) * 100;
+        const haicham = (transportationWays.transportationWays.filter((service: any) => service.includes('..')).length / totalCount) * 100;
+        const khachhang = (transportationWays.transportationWays.filter((service: any) => service.includes('Khách hàng')).length / totalCount) * 100;
+        const dichvuhaiquan = (transportationWays.transportationWays.filter((service: any) => service.includes('Dịch vụ hải quan')).length / totalCount) * 100;
+        const congtyxulinuocthai = (transportationWays.transportationWays.filter((service: any) => service.includes('Công ty xử lý nước thải')).length / totalCount) * 100;
+        const Xaydungtruongmamnon = (transportationWays.transportationWays.filter((service: any) => service.includes('Xây dựng trường mầm non')).length / totalCount) * 100;
+        const Xaydung = (transportationWays.transportationWays.filter((service: any) => service.includes('Xây dựng')).length / totalCount) * 100;
+        const haucan = (transportationWays.transportationWays.filter((service: any) => service.includes('Hậu cần')).length / totalCount) * 100;
+        const dichvutuvanlogicstic = (transportationWays.transportationWays.filter((service: any) => service.includes('Dịch vụ tư vấn logistics')).length / totalCount) * 100;
+        const chisanxuatphutung = (transportationWays.transportationWays.filter((service: any) => service.includes('Chỉ sản xuất phụ tùng')).length / totalCount) * 100;
+        const sanxuatphutung = (transportationWays.transportationWays.filter((service: any) => service.includes('Sản xuất phụ tùng')).length / totalCount) * 100;
+        const khongsudung = (transportationWays.transportationWays.filter((service: any) => service.includes('Không sử dụng')).length / totalCount) * 100;
         data = [
             parseFloat(vantainoidia.toFixed(1)),
             parseFloat(vantaiquocte.toFixed(1)),
@@ -875,7 +813,6 @@ const TransportationWays = (transportationWays: PropChart) => {
             parseFloat(sanxuatphutung.toFixed(1)),
             parseFloat(khongsudung.toFixed(1)),
         ];
-
     }
 
     const options: ChartOptions<'bar'> = {
@@ -922,7 +859,7 @@ const TransportationWays = (transportationWays: PropChart) => {
         // },
     };
     const dataArcElement = {
-        labels: ['Vận tải nội địa', 'Vận tải quốc tế', 'Khai báo hải quan', 'Làm thủ tục xuất/nhập khẩu', 'Đóng gói hàng hóa', 'Xếp dỡ hàng hóa', 'Giao nhận hàng hóa', 'Thu mua nguyên vật liệu', 'Dán nhãn, ký mã hiệu', 'Kho ngoại quan', 'Quản lý tồn kho', 'Quản lý hệ thống thông tin', 'Phân phối', 'Kiểm tra chất lượng', 'Xử lý đơn hàng', 'Bảo hiểm hàng hóa', 'Chuỗi cung ứng', 'Cross-docking','Không', 'Kho bãi', 'Hải châm', 'Khách hàng', 'Dịch vụ hải quan', 'Công ty xử lý nước thải', 'Xây dựng trường mầm non', 'Xây dựng', 'Hậu cần', 'Dịch vụ tư vấn logistics', 'Chỉ sản xuất phụ tùng', 'Sản xuất phụ tùng', 'Không sử dụng'],
+        labels: ['Vận tải nội địa', 'Vận tải quốc tế', 'Khai báo hải quan', 'Làm thủ tục xuất/nhập khẩu', 'Đóng gói hàng hóa', 'Xếp dỡ hàng hóa', 'Giao nhận hàng hóa', 'Thu mua nguyên vật liệu', 'Dán nhãn, ký mã hiệu', 'Kho ngoại quan', 'Quản lý tồn kho', 'Quản lý hệ thống thông tin', 'Phân phối', 'Kiểm tra chất lượng', 'Xử lý đơn hàng', 'Bảo hiểm hàng hóa', 'Chuỗi cung ứng', 'Cross-docking', 'Không', 'Kho bãi', 'Hải châm', 'Khách hàng', 'Dịch vụ hải quan', 'Công ty xử lý nước thải', 'Xây dựng trường mầm non', 'Xây dựng', 'Hậu cần', 'Dịch vụ tư vấn logistics', 'Chỉ sản xuất phụ tùng', 'Sản xuất phụ tùng', 'Không sử dụng'],
         datasets: [
             {
                 data,
@@ -936,46 +873,44 @@ const TransportationWays = (transportationWays: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 7. Biểu đồ Những dịch vụ logistics đang được doanh nghiệp sản xuất sử dụng:
             </h4>
             <div style={{
                 // maxWidth: '2400px',
-                maxHeight: '800px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '800px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
 };
-
 
 const ImportantFactor = (importantFactor: PropChart) => {
     let data : number [] = [];
     if (importantFactor && importantFactor.importantFactors) {
         const totalCount = importantFactor.importantFactors.length;
         // In ra totalCount
-        let chinhsachthue = (importantFactor.importantFactors.filter((service: any) => service.includes('Chính sách thuế')).length / totalCount) * 100;
-        let thutuchaiquan = ((importantFactor.importantFactors.filter((service: any) => service.includes('Thủ tục hải quan')).length / totalCount) * 100);
-        let hanhlangphaply = (importantFactor.importantFactors.filter((service: any) => service.includes('Hành lang pháp lý')).length / totalCount) * 100;
-        let cosohatang = (importantFactor.importantFactors.filter((service: any) => service.includes('Cơ sở hạ tầng')).length / totalCount) * 100;
-        let thutuchanhchinh = (importantFactor.importantFactors.filter((service: any) => service.includes('Thủ tục hành chính')).length / totalCount) * 100;
-        let chuyendoiso = (importantFactor.importantFactors.filter((service: any) => service.includes('Chuyển đổi số')).length / totalCount) * 100;
-        let daotaonhanluc = (importantFactor.importantFactors.filter((service: any) => service.includes('Đào tạo nhân lực')).length / totalCount) * 100;
-        let khong = (importantFactor.importantFactors.filter((service: any) => service.includes('không')).length / totalCount) * 100;
-        let haicham = (importantFactor.importantFactors.filter((service: any) => service.includes('..')).length / totalCount) * 100;
-        let none = (importantFactor.importantFactors.filter((service: any) => service === '').length / totalCount) * 100;
-        let vitridialitangcuonghoptac = (importantFactor.importantFactors.filter((service: any) => service.includes('Vị trí địa lý, tăng cường hợp tác')).length / totalCount) * 100;
-        let cosohatanglayeutovocungquantrong = (importantFactor.importantFactors.filter((service: any) => service.includes('Cơ sở hạ tầng là yếu tố vô cùng quan trọng để ngành logistics phát triển')).length / totalCount) * 100;
-        let khongsanxuathanghoa = (importantFactor.importantFactors.filter((service: any) => service.includes('không sản xuất hàng hóa cụ thể')).length / totalCount) * 100;
-        let xaydungtruongmamnon = (importantFactor.importantFactors.filter((service: any) => service.includes('Xây dựng trường mầm non tư thục và phòng khám đa khoa')).length / totalCount) * 100;
-        let tatcacacytren = (importantFactor.importantFactors.filter((service: any) => service.includes('Tất cả ý trên')).length / totalCount) * 100;
-        let hanamlacosohatang = (importantFactor.importantFactors.filter((service: any) => service.includes('Hà Nam cơ sở hạ tầng vẫn chưa phát triển')).length / totalCount) * 100;
-        let hanamcandautu = (importantFactor.importantFactors.filter((service: any) => service.includes('Hà Nam cần đầu tư nhiều hơn về cơ sở hạ tầng')).length / totalCount) * 100;
-        let tatca = (importantFactor.importantFactors.filter((service: any) => service.includes('Tất cả')).length / totalCount) * 100;
-        let tangcuonghoptacquocte = (importantFactor.importantFactors.filter((service: any) => service.includes('Tăng cường hợp tác quốc tế')).length / totalCount) * 100;
-
-        console.log(thutuchaiquan);
+        const chinhsachthue = (importantFactor.importantFactors.filter((service: any) => service.includes('Chính sách thuế')).length / totalCount) * 100;
+        const thutuchaiquan = ((importantFactor.importantFactors.filter((service: any) => service.includes('Thủ tục hải quan')).length / totalCount) * 100);
+        const hanhlangphaply = (importantFactor.importantFactors.filter((service: any) => service.includes('Hành lang pháp lý')).length / totalCount) * 100;
+        const cosohatang = (importantFactor.importantFactors.filter((service: any) => service.includes('Cơ sở hạ tầng')).length / totalCount) * 100;
+        const thutuchanhchinh = (importantFactor.importantFactors.filter((service: any) => service.includes('Thủ tục hành chính')).length / totalCount) * 100;
+        const chuyendoiso = (importantFactor.importantFactors.filter((service: any) => service.includes('Chuyển đổi số')).length / totalCount) * 100;
+        const daotaonhanluc = (importantFactor.importantFactors.filter((service: any) => service.includes('Đào tạo nhân lực')).length / totalCount) * 100;
+        const khong = (importantFactor.importantFactors.filter((service: any) => service.includes('không')).length / totalCount) * 100;
+        const haicham = (importantFactor.importantFactors.filter((service: any) => service.includes('..')).length / totalCount) * 100;
+        const none = (importantFactor.importantFactors.filter((service: any) => service === '').length / totalCount) * 100;
+        const vitridialitangcuonghoptac = (importantFactor.importantFactors.filter((service: any) => service.includes('Vị trí địa lý, tăng cường hợp tác')).length / totalCount) * 100;
+        const cosohatanglayeutovocungquantrong = (importantFactor.importantFactors.filter((service: any) => service.includes('Cơ sở hạ tầng là yếu tố vô cùng quan trọng để ngành logistics phát triển')).length / totalCount) * 100;
+        const khongsanxuathanghoa = (importantFactor.importantFactors.filter((service: any) => service.includes('không sản xuất hàng hóa cụ thể')).length / totalCount) * 100;
+        const xaydungtruongmamnon = (importantFactor.importantFactors.filter((service: any) => service.includes('Xây dựng trường mầm non tư thục và phòng khám đa khoa')).length / totalCount) * 100;
+        const tatcacacytren = (importantFactor.importantFactors.filter((service: any) => service.includes('Tất cả ý trên')).length / totalCount) * 100;
+        const hanamlacosohatang = (importantFactor.importantFactors.filter((service: any) => service.includes('Hà Nam cơ sở hạ tầng vẫn chưa phát triển')).length / totalCount) * 100;
+        const hanamcandautu = (importantFactor.importantFactors.filter((service: any) => service.includes('Hà Nam cần đầu tư nhiều hơn về cơ sở hạ tầng')).length / totalCount) * 100;
+        const tatca = (importantFactor.importantFactors.filter((service: any) => service.includes('Tất cả')).length / totalCount) * 100;
+        const tangcuonghoptacquocte = (importantFactor.importantFactors.filter((service: any) => service.includes('Tăng cường hợp tác quốc tế')).length / totalCount) * 100;
         data = [
             parseFloat(chinhsachthue.toFixed(1)),
             parseFloat(thutuchaiquan.toFixed(1)),
@@ -997,7 +932,6 @@ const ImportantFactor = (importantFactor: PropChart) => {
             parseFloat(tatca.toFixed(1)),
             parseFloat(tangcuonghoptacquocte.toFixed(1)),
         ];
-
     }
 
     const options: ChartOptions<'bar'> = {
@@ -1058,14 +992,15 @@ const ImportantFactor = (importantFactor: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 7. Biểu đồ Các yếu tố phát triển dịch vụ logistics tại Tỉnh Hà Nam:
             </h4>
             <div style={{
                 // maxWidth: '2400px',
-                maxHeight: '800px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '800px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -1093,7 +1028,7 @@ const QuantityEmployees_0 = (quantityEmployees_0: PropChart) => {
             tu1001den2000nguoi +
             tren2000nguoi;
 
-        if(totalPercentage !== 100) {
+        if (totalPercentage !== 100) {
             const adjustmentFactor = 100 / totalPercentage;
             duoi50nguoi *= adjustmentFactor;
             tu51den100nguoi *= adjustmentFactor;
@@ -1113,7 +1048,6 @@ const QuantityEmployees_0 = (quantityEmployees_0: PropChart) => {
             parseFloat(tu1001den2000nguoi.toFixed(1)),
             parseFloat(tren2000nguoi.toFixed(1)),
         ];
-
     }
 
     const options: ChartOptions<'bar'> = {
@@ -1174,14 +1108,15 @@ const QuantityEmployees_0 = (quantityEmployees_0: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 8. Biểu đồ thể hiện số lượng nhân viên trong doanh nghiệp vận tải:
             </h4>
             <div style={{
                 maxWidth: '800px',
-                maxHeight: '300px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '300px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -1192,22 +1127,22 @@ const LogisticServices_1 = (logisticServices_1: PropChart) => {
     if (logisticServices_1 && logisticServices_1.logisticServices_1) {
         const totalCount = logisticServices_1.logisticServices_1.length;
         // In ra totalCount
-        let detmay = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Dệt may')).length / totalCount) * 100;
-        let thuysan = ((logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Thủy sản')).length / totalCount) * 100);
-        let nongsan = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Nông sản')).length / totalCount) * 100;
-        let dienthoaicacloaivalinhkien =  (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Điện thoại các loại và linh kiện')).length / totalCount) * 100;
-        let mayvitinhsanphamdientuvalinhkien = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Máy vi tính, sản phẩm điện tử và linh kiện')).length / totalCount) * 100;
-        let dagiaytuisach = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Da giày, túi xách')).length / totalCount) * 100;
-        let thep = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Thép')).length / totalCount) * 100;
-        let nhuavasanphamtunhua = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Nhựa và sản phẩm từ nhựa')).length / totalCount) * 100;
-        let maymocthietbiphutungkhac = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Máy móc, thiết bị và phụ tùng khác')).length / totalCount) * 100;
-        let govasanphamtugo = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Gỗ và sản phẩm từ gỗ')).length / totalCount) * 100;
-        let than = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Than')).length / totalCount) * 100;
-        let xangdauvacacloainhienlieukhac = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Xăng dầu và các loại nhiên liệu khác')).length / totalCount) * 100;
-        let vatphamvanhoagiaoduc = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Vật phẩm, văn hóa, giáo dục')).length / totalCount) * 100;
-        let sanphamhoachat = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Sản phẩm hóa chất')).length / totalCount) * 100;
-        let sanphamdouong = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Sản phẩm đồ uống')).length / totalCount) * 100;
-        let cham = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('.')).length / totalCount) * 100;
+        const detmay = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Dệt may')).length / totalCount) * 100;
+        const thuysan = ((logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Thủy sản')).length / totalCount) * 100);
+        const nongsan = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Nông sản')).length / totalCount) * 100;
+        const dienthoaicacloaivalinhkien = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Điện thoại các loại và linh kiện')).length / totalCount) * 100;
+        const mayvitinhsanphamdientuvalinhkien = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Máy vi tính, sản phẩm điện tử và linh kiện')).length / totalCount) * 100;
+        const dagiaytuisach = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Da giày, túi xách')).length / totalCount) * 100;
+        const thep = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Thép')).length / totalCount) * 100;
+        const nhuavasanphamtunhua = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Nhựa và sản phẩm từ nhựa')).length / totalCount) * 100;
+        const maymocthietbiphutungkhac = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Máy móc, thiết bị và phụ tùng khác')).length / totalCount) * 100;
+        const govasanphamtugo = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Gỗ và sản phẩm từ gỗ')).length / totalCount) * 100;
+        const than = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Than')).length / totalCount) * 100;
+        const xangdauvacacloainhienlieukhac = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Xăng dầu và các loại nhiên liệu khác')).length / totalCount) * 100;
+        const vatphamvanhoagiaoduc = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Vật phẩm, văn hóa, giáo dục')).length / totalCount) * 100;
+        const sanphamhoachat = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Sản phẩm hóa chất')).length / totalCount) * 100;
+        const sanphamdouong = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('Sản phẩm đồ uống')).length / totalCount) * 100;
+        const cham = (logisticServices_1.logisticServices_1.filter((service: any) => service.includes('.')).length / totalCount) * 100;
 
         data = [
             parseFloat(detmay.toFixed(1)),
@@ -1227,7 +1162,6 @@ const LogisticServices_1 = (logisticServices_1: PropChart) => {
             parseFloat(sanphamhoachat.toFixed(1)),
             parseFloat(sanphamdouong.toFixed(1)),
         ];
-
     }
 
     const options: ChartOptions<'bar'> = {
@@ -1274,7 +1208,7 @@ const LogisticServices_1 = (logisticServices_1: PropChart) => {
         // },
     };
     const dataArcElement = {
-        labels: ['Dệt may', 'Thủy sản', 'Nông sản', 'Điện thoại các loại và linh kiện', 'Máy vi tính, sản phẩm điện tử và linh kiện', 'Da giày, túi sách','.', 'Thép', 'Nhựa và sản phẩm từ nhựa', 'Máy móc, thiết bị và phụ tùng khác', 'Gỗ và sản phẩm từ gỗ', 'Than', 'Xăng dầu và các loại nhiên liệu khác', 'Vật phẩm, văn hóa, giáo dục', 'Sản phẩm hóa chất', 'Sản phẩm đồ uống'],
+        labels: ['Dệt may', 'Thủy sản', 'Nông sản', 'Điện thoại các loại và linh kiện', 'Máy vi tính, sản phẩm điện tử và linh kiện', 'Da giày, túi sách', '.', 'Thép', 'Nhựa và sản phẩm từ nhựa', 'Máy móc, thiết bị và phụ tùng khác', 'Gỗ và sản phẩm từ gỗ', 'Than', 'Xăng dầu và các loại nhiên liệu khác', 'Vật phẩm, văn hóa, giáo dục', 'Sản phẩm hóa chất', 'Sản phẩm đồ uống'],
         datasets: [
             {
                 data,
@@ -1288,14 +1222,15 @@ const LogisticServices_1 = (logisticServices_1: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 9. Biểu đồ thể hiện tỷ lệ loại hàng hóa các công ty logicstic chuyên vận chuyển:
             </h4>
             <div style={{
                 // maxWidth: '800px',
-                maxHeight: '800px'
-            }}>
-                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]}/>
+                maxHeight: '800px',
+            }}
+            >
+                <Bar options={options} data={dataArcElement} plugins={[ChartDataLabels]} />
             </div>
         </>
     );
@@ -1308,7 +1243,6 @@ const LogisticServices_Xep = (logisticServices_Xep: PropChart) => {
         const totalCount = logisticServices_Xep.logisticServices_Xep.length;
         let coCount = (logisticServices_Xep.logisticServices_Xep.filter((service: any) => service.includes('Xếp dỡ hàng hóa')).length / totalCount) * 100;
         let khongCount = ((logisticServices_Xep.logisticServices_Xep.filter((service: any) => !service.includes('Xếp dỡ hàng hóa')).length / totalCount) * 100);
-
         // Total %
         const totalPercentage =
             khongCount +
@@ -1320,11 +1254,12 @@ const LogisticServices_Xep = (logisticServices_Xep: PropChart) => {
             khongCount *= adjustmentFactor;
             coCount *= adjustmentFactor;
         }
+
         data = [
             Math.round(khongCount),
             Math.round(coCount),
         ];
-        labels = ['Không (%)', 'Có (%)'];
+        labels = ['Có (%)', 'Không (%)'];
     }
 
     const options: ChartOptions<'pie'> = {
@@ -1370,25 +1305,23 @@ const LogisticServices_Xep = (logisticServices_Xep: PropChart) => {
 
     return (
         <>
-            <h4 style={{marginTop: 50}}>
+            <h4 style={{ marginTop: 50 }}>
                 10. Kết quả khảo sát doanh nghiệp vận tải cung cấp dịch vụ xếp dỡ hàng hoá:
             </h4>
             <div style={{
                 maxWidth: '660px',
-                maxHeight: '300px'
-            }}>
+                maxHeight: '300px',
+            }}
+            >
                 <Pie
-                    style={{maxHeight: '300px'}}
-                    options={options}
-                    data={dataArcElement}
+                  style={{ maxHeight: '300px' }}
+                  options={options}
+                  data={dataArcElement}
                 />
             </div>
         </>
     );
 };
-
-
-
 
 export {
     TransportationServices,
