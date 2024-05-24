@@ -24,6 +24,7 @@
     "@mantine/hooks": "7.3.0",
     "@mantine/notifications": "^7.3.1",
     "@next/bundle-analyzer": "^14.0.1",
+    "@react-google-maps/api": "^2.19.3",
     "@tabler/icons-react": "^2.40.0",
     "@types/googlemaps": "^3.43.3",
     "chart.js": "^4.0.0",
@@ -36,6 +37,7 @@
     "react": "18.2.0",
     "react-chartjs-2": "^5.0.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "^6.23.1",
     "sass": "^1.71.1"
   },
   "devDependencies": {
