@@ -6,7 +6,7 @@ import cx from 'clsx';
 import globalCss from '../../styles/global.module.css';
 import {MapData} from '@/types';
 import classes from './style.module.css';
-import EmbeddedWebsite from "@/components/Location/EmbeddedWebsite";
+import EmbeddedWebsite from '@/components/Location/EmbeddedWebsite';
 
 const Map = () => {
     const [data, setData] = useState<MapData>({
