@@ -72,7 +72,7 @@ const Map = () => {
                     {showWebsite ? (
                         <>
                             <button onClick={() => setShowWebsite(false)}>Close map</button>
-                            <EmbeddedWebsite url="https://hoangmanhkhiem.github.io/GoogleMapstatic/" />
+                            <EmbeddedWebsite url="https://iamryran.github.io/Map/" />
                         </>
                     ) : (
                         <>
